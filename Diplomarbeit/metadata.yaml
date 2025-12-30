@@ -29,10 +29,15 @@ da-author:
     zweck: Informationsbeschaffung, Rechtschreibüberprüfung
 
 - vorname: Michael     
-  nachname: Zornig
+  nachname: Zorn
   klasse: 5AHWIN
-  thema: 
-  
+  thema: Analyse der Standardsoftware und Entwicklung einer interaktiven Präsentationsseite mit Pepper-gestützter Publikumsinteraktion und Erklärvideos
+  ki-tools:
+  - name: ChatGPT 5.1
+    zweck: Informationsbeschaffung, Rechtschreibüberprüfung, Coding
+  - name: Gemini 3
+    zweck: Bildgenerierung
+    
 da-betreuer:
 - paraffe: schr
   name: Ing. DI Dr. Christian Schindler
