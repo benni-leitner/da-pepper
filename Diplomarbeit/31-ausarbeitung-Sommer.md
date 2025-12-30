@@ -219,44 +219,135 @@ Dieses Snippet zeigt die Datenbasis für das Memory-Spiel sowie die Zufallsdurch
 
 Diese Methode ist effizient, leicht verständlich und funktioniert zuverlässig auf dem Pepper-Tablet. Durch das Mischen wird sichergestellt, dass jede Spielrunde unterschiedlich ist.
 
-## Entwicklungsworkflow und Tools
+## Entwicklungsworkflow und verwendete Tools
 
-Die HTML-, CSS- und JavaScript-Dateien wurden mit Notepad++ bearbeitet. Der Editor ist ressourcenschonend und eignet sich gut für einfache Webprojekte ohne Build-Systeme.
+Für die Umsetzung der Tablet-Anwendungen sowie der dazugehörigen Logik wurde bewusst auf einen einfachen und transparenten Entwicklungsworkflow gesetzt. Ziel war es, ein System zu schaffen, das ohne komplexe Build-Prozesse oder zusätzliche Abhängigkeiten auskommt und direkt auf dem Pepper-Tablet lauffähig ist.
 
-Getestet wurde zweistufig:
-- Logiktests am PC
-- Kompatibilitäts- und Performancetests auf dem Pepper-Tablet
+### Webentwicklung (HTML, CSS, JavaScript)
 
-Dabei zeigte sich, dass moderne JavaScript-Features auf dem Tablet problematisch sind. Deshalb wurde konsequent auf einfache, kompatible Logik gesetzt.
+Die Benutzeroberflächen der Spiele sowie der zentralen Spieleübersicht wurden mit den Webtechnologien HTML, CSS und JavaScript umgesetzt. Diese Technologien eignen sich besonders gut für die Entwicklung einfacher, interaktiver Benutzeroberflächen und werden vom Pepper-Tablet grundsätzlich unterstützt.
+
+Bei der Entwicklung wurde darauf geachtet, ausschließlich grundlegende und kompatible JavaScript-Konstrukte zu verwenden. Moderne JavaScript-Features oder Frameworks wurden bewusst vermieden, da das Tablet von Pepper auf einer älteren Android-Version mit eingeschränkter WebView-Unterstützung basiert. Funktionen, die in modernen Desktop-Browsern problemlos laufen, können auf dem Pepper-Tablet zu Darstellungsfehlern, Performanceproblemen oder Abstürzen führen.
+
+Die Gestaltung der Benutzeroberflächen erfolgte mit einfachem CSS. Dabei wurden große Buttons, klare Farben und übersichtliche Layouts verwendet, um eine sichere Touch-Bedienung zu gewährleisten. Das Farbschema orientiert sich am Erscheinungsbild der HTL Leoben, um einen einheitlichen Gesamteindruck zu erzeugen.
+
+### Bearbeitung der Dateien mit Notepad++
+
+Die HTML-, CSS- und JavaScript-Dateien wurden mit dem Texteditor Notepad++ bearbeitet. Dieser Editor wurde gewählt, da er ressourcenschonend ist, keine zusätzlichen Abhängigkeiten benötigt und sich gut für einfache Webprojekte eignet.
+
+Notepad++ ermöglicht eine direkte Bearbeitung der Projektdateien im HTML-Ordner der Choregraphe-Anwendung. Dadurch konnten Änderungen schnell getestet werden, ohne einen zusätzlichen Build- oder Deployment-Prozess durchführen zu müssen. Besonders im Zusammenspiel mit der eingeschränkten Hardware von Pepper erwies sich dieser einfache Workflow als vorteilhaft.
+
+### Choregraphe als Entwicklungsumgebung
+
+Für die Steuerung des Roboters und die Verarbeitung der vom Tablet gesendeten Ereignisse wurde die Entwicklungsumgebung Choregraphe verwendet. Choregraphe ist die offizielle grafische Entwicklungsumgebung für Pepper und basiert auf dem NAOqi-Framework.
+
+In Choregraphe wurden die sogenannten Show-Apps erstellt, die beim Start der Anwendung automatisch ausgeführt werden. Diese Show-Apps übernehmen unter anderem folgende Aufgaben:
+
+- Laden der Tablet-Webanwendung
+- Anzeigen der Weboberfläche auf dem Tablet
+- Entgegennehmen von QiMessaging-Ereignissen
+- Weiterleitung der Ereignisse an Sprach- oder Animationsboxen
+
+Zusätzlich wurden in Choregraphe vordefinierte Animationen, Gesten und Augen-Emotes verwendet. Diese sind bereits in der Entwicklungsumgebung enthalten und können ohne zusätzliche Programmierung eingebunden werden.
+
+### Python-Skripte innerhalb von Choregraphe
+
+Innerhalb von Choregraphe wurden Python-Skripte eingesetzt, um bestimmte Abläufe zu steuern. Dazu zählen unter anderem:
+
+- Starten der Tablet-Webanwendung
+- Verarbeiten von Ereignissen aus ALMemory
+- Steuern der Sprachausgabe über ALTextToSpeech
+
+Python eignet sich besonders gut für diese Aufgaben, da es die native Programmiersprache von NAOqi ist und direkt auf die internen Dienste von Pepper zugreifen kann. Die verwendeten Skripte sind bewusst einfach gehalten und verzichten auf komplexe Logik, um die Stabilität im Dauerbetrieb zu gewährleisten.
+
+### QiMessaging als Kommunikationsschnittstelle
+
+Die Kommunikation zwischen der Tablet-Webanwendung und Pepper erfolgt über QiMessaging. QiMessaging stellt eine Schnittstelle bereit, über die JavaScript-Code auf dem Tablet mit den NAOqi-Diensten des Roboters kommunizieren kann.
+
+Über QiMessaging wird eine Sitzung aufgebaut, über die anschließend auf Dienste wie ALMemory zugegriffen wird. Benutzeraktionen auf dem Tablet lösen Ereignisse aus, die über ALMemory an Choregraphe übermittelt werden. Dort werden sie weiterverarbeitet, beispielsweise für Sprachausgaben oder Animationen.
+
+Dieser Ansatz ermöglicht eine klare Trennung zwischen Benutzeroberfläche und Roboterlogik. Die Tablet-Seite kennt lediglich die Namen der Ereignisse, nicht jedoch die konkrete Umsetzung der Reaktion von Pepper.
+
+### Teststrategie
+
+Die Tests wurden bewusst zweistufig durchgeführt:
+
+- Logiktests am PC  
+  Die grundlegende Spiellogik, Navigation und Darstellung wurden zunächst in einem Desktop-Browser getestet. Dies ermöglichte ein schnelles Debugging und eine effiziente Weiterentwicklung.
+
+- Kompatibilitäts- und Performancetests auf dem Pepper-Tablet  
+  Anschließend wurden alle Funktionen direkt auf dem Pepper-Tablet getestet. Diese Tests waren entscheidend, da sich hier Einschränkungen der WebView und der Hardware deutlich bemerkbar machten.
+
+Ein zentrales Ergebnis dieser Tests war die Erkenntnis, dass moderne JavaScript-Konstrukte und komplexe Animationen auf dem Tablet problematisch sind. Daher wurde konsequent auf einfache, robuste Lösungen gesetzt.
 
 ## Tests und Validierung
 
-Die Spiele wurden durch das Projektteam sowie durch Mitschüler getestet. Der geplante Einsatz erfolgt im Empfangsbereich, bei Schulführungen, am Tag der offenen Tür sowie bei Präsentationen.
+Die entwickelten Spiele wurden sowohl vom Projektteam als auch von Mitschülerinnen und Mitschülern getestet. Ziel dieser Tests war es, die Alltagstauglichkeit des Systems unter realistischen Bedingungen zu überprüfen.
 
-Als erfolgreich validiert gelten:
-- zuverlässiger Start der Tablet-Anwendung
-- vollständige Spielbarkeit
-- korrektes Layout bei 1280×800
-- stabile QiMessaging-Kommunikation
-- verständliche Sprachausgabe
+Der geplante Einsatzbereich umfasst:
 
-Bekannte Probleme sind gelegentliche Performance-Einbußen des Tablets und vereinzelte Abstürze. Diese können in der Praxis meist durch einen Neustart der App oder einen vollständigen Neustart von Pepper behoben werden.
+- den Empfangsbereich der Schule
+- Schulführungen
+- den Tag der offenen Tür
+- Messen und Präsentationen
+
+### Abnahmekriterien
+
+Als erfolgreich validiert gelten folgende Kriterien:
+
+- die Tablet-Anwendung startet zuverlässig
+- alle Spiele sind vollständig spielbar
+- das Layout ist an die Tablet-Auflösung von 1280×800 angepasst
+- die QiMessaging-Kommunikation funktioniert stabil
+- Pepper reagiert korrekt auf Tablet-Eingaben
+- die Sprachausgabe ist gut verständlich
+
+### Bekannte Probleme und Umgang damit
+
+Im praktischen Betrieb traten vereinzelt folgende Probleme auf:
+
+- verzögerte Reaktion des Tablets
+- eingeschränkte Performance bei längerer Laufzeit
+- vereinzelte Abstürze der Tablet-Anwendung
+- zeitweise unzuverlässige Sensorik
+
+Diese Probleme sind größtenteils hardwarebedingt. In der Praxis konnten sie meist durch folgende Maßnahmen behoben werden:
+
+- Neustart der Tablet-Anwendung
+- erneutes Verbinden über Choregraphe
+- vollständiger Neustart von Pepper
+
+Ein vollständiger Neustart von Pepper behebt in der Praxis den Großteil der auftretenden Probleme. Wichtig ist, dass dabei kein Datenverlust auftritt und das System nach dem Neustart wieder vollständig einsatzbereit ist.
 
 ## Projektmanagement-Beitrag
 
-Sommer war am Projektmanagement beteiligt, insbesondere an der Zeitplanung, Meilensteinverwaltung und internen Abstimmung. Für die Planung wurde Microsoft Project verwendet.
+Sommer war aktiv am Projektmanagement beteiligt. Zu den Aufgaben zählten insbesondere die Zeitplanung, die Verwaltung von Meilensteinen sowie die Koordination innerhalb des Projektteams.
 
-Der Projektplan umfasst Analyse, Entwicklung, Test und Dokumentation. Regelmäßige Zwischenmeetings dienten der Fortschrittskontrolle und Koordination der Teammitglieder.
+Für die Planung wurde Microsoft Project verwendet. Mit diesem Werkzeug konnten Aufgaben, Abhängigkeiten und Meilensteine übersichtlich in Form eines Gantt-Diagramms dargestellt werden. Der Projektplan gliedert sich in mehrere Phasen, darunter Analyse, Entwicklung, Test und Dokumentation.
 
-[Abbildung: Projektplan in Microsoft Project]
+Regelmäßige interne Zwischenmeetings dienten der Abstimmung des Projektfortschritts und der frühzeitigen Identifikation von Problemen. Gerade bei der Arbeit mit Hardware wie Pepper erwies sich eine strukturierte Planung als besonders wichtig, da Tests und Neustarts zeitaufwendig sein können.
+
+[Abbildung: Projektplan und Meilensteine in Microsoft Project]
 
 ## Tutorial-Beitrag
 
-Das Tutorial wurde mit Microsoft PowerPoint erstellt und dient als Schritt-für-Schritt-Anleitung zur Inbetriebnahme von Pepper. Inhalte sind unter anderem Auspacken, Netzwerkanbindung, Verbindung über Choregraphe, Start der Tablet-App sowie Troubleshooting.
+Ein weiterer wesentlicher Bestandteil der Teilaufgabe war die Mitwirkung an der Erstellung eines Tutorials. Das Tutorial wurde mit Microsoft PowerPoint erstellt, da dieses Werkzeug eine schnelle und flexible Gestaltung von Anleitungen ermöglicht.
 
-Das Tutorial wird sowohl gedruckt als auch als PDF bereitgestellt und ermöglicht eine einfache Nutzung des Systems ohne tiefgehende technische Vorkenntnisse.
+Das Tutorial dient als Schritt-für-Schritt-Anleitung zur Inbetriebnahme und Nutzung von Pepper. Es richtet sich auch an Personen ohne tiefgehende technische Vorkenntnisse.
 
-[Abbildung: Screenshot aus dem Tutorial]
+Behandelte Inhalte des Tutorials sind unter anderem:
+
+- Auspacken und grundlegende Inbetriebnahme
+- Netzwerkanbindung über den Pepper-Router
+- Verbindung zu Pepper über Choregraphe
+- Starten der Tablet-Anwendung
+- Hinweise zur Anpassung bei aktiver Entwicklung
+- Troubleshooting bei typischen Fehlern
+
+Das Tutorial wird sowohl in gedruckter Form als auch als PDF bereitgestellt. Dadurch ist es flexibel einsetzbar und kann bei Bedarf leicht aktualisiert werden.
+
+[Abbildung: Screenshot aus dem Tutorial – Verbindung mit Pepper]
+
 
 ## Zusammenfassung
 
