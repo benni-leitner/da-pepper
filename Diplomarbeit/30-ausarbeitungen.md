@@ -1,52 +1,39 @@
-# Aufgabenstellung 
+# 3 Aufgabenstellung
 
-## Auftraggeber
-Wer ist der Auftraggeber, wie ist es zu dieser Arbeit gekommen, was verspricht sich der Auftraggeber davon
+## 3.1 Auftraggeber und Aufgabenstellung
 
-## Ausgangssituation
+### Auftraggeber
 
-Eine allgemeine Aufgabenstellung 
+Auftraggeber dieser Diplomarbeit ist die **HTL Leoben**. Der humanoide Serviceroboter Pepper ist an der Schule bereits vorhanden und wurde in der Vergangenheit vereinzelt für Demonstrationszwecke eingesetzt. Aufgrund fehlender Erweiterbarkeit, veralteter Softwarekomponenten sowie unzureichender Dokumentation war ein dauerhafter und sinnvoller Einsatz jedoch nicht möglich.
 
-* Was ist die derzeitige Situation ? 
-* Wie wird derzeit gearbeitet ?
+Die Initiative zu dieser Diplomarbeit entstand aus dem Wunsch, Pepper neu aufzusetzen und für schulische Veranstaltungen wie den Tag der offenen Tür, Schulführungen oder Präsentationen nutzbar zu machen. Der Auftraggeber verspricht sich von dieser Arbeit eine moderne, stabile und selbsterklärende Lösung, die ohne tiefgehendes technisches Vorwissen bedient werden kann und langfristig an der Schule eingesetzt wird.
 
+---
 
-### So gehen Zitate
+### Ausgangssituation
 
-Hier ein einzel Zitat eines Buches das auf der Seite 17 zu finden ist:  
-([@hattie_lernen_2013] S. 17) 
+Zu Beginn der Diplomarbeit befand sich Pepper in einem technisch eingeschränkten Zustand. Die vorhandene Software war nicht einheitlich strukturiert und nur teilweise dokumentiert. Interaktionen mit Besuchern waren nur eingeschränkt möglich und für Außenstehende nicht selbsterklärend.
 
-Zitatsammlung:  
-(vergleich dazu @heise oder @t3n)  
-[@hattie_lernen_2013, S. 33-35; außerdem @leeb_einfuhrung_2016, S. 6 f.]
+Eine zentrale Tablet-Anwendung, über welche Inhalte übersichtlich dargestellt und Interaktionen ausgelöst werden können, war nicht vorhanden. Ebenso fehlte eine klare Trennung zwischen Benutzeroberfläche, Spiellogik und Roboterverhalten. Änderungen am System erforderten umfangreiche Kenntnisse der Pepper-Softwareumgebung und waren daher nur eingeschränkt durchführbar.
 
-Zitat ohne Autor  
-Hattie sagte bla bla [-@hattie_lernen_2013]
+Der derzeitige Arbeitsablauf war stark manuell geprägt. Für Präsentationen musste Pepper aktiv über Choregraphe gesteuert werden, was einen betreuten Betrieb erforderte. Ein teilautonomer Einsatz, beispielsweise über einen längeren Zeitraum ohne permanente Aufsicht, war nicht möglich.
 
-Name des Autors mit Jahr in Klammern  
-@hattie_lernen_2013 sagte einmal bla bla bla
+---
 
-Auch Videos kann man Zitieren wi Zum Biespiel hier [@Zatko15] in dieser Referenz.
+## 3.2 Allgemeine Systembeschreibung
 
-Hier noch ein Zitat mit Seitenangabe [[@Zatko15] Seite 5f.]
+Ziel der entwickelten Lösung ist ein ereignisbasiertes System, bei dem die Benutzerinteraktion über eine tabletbasierte Weboberfläche erfolgt. Diese Weboberfläche wird direkt auf dem Tablet von Pepper angezeigt und dient als zentrale Schnittstelle für Besucher.
 
-Man darf auch ChatGPT oder andere KIs befragen um Wissen zu erlangen. Dazu muss allerdings ein PDF Log des exakten Chats in die Metadata.yaml eingetragen werden und der dort eingetragene `short-prompt` auch in der bib Datei eingefügt werden. Dann könnten indirekte Zitate so aussehen [@gpt-pandoc] oder auch so [@gpt-atomaufbau].
+Benutzereingaben auf dem Tablet lösen definierte Ereignisse aus, welche über eine Kommunikationsschnittstelle an Pepper weitergegeben werden. In der Entwicklungsumgebung werden diese Ereignisse verarbeitet und mit entsprechenden Aktionen wie Sprachausgabe, Animationen oder Videowiedergabe verknüpft.
 
-Wichtig ist es, das beim Author die verwendete KI eingetragen wird (mit Versionsnummern - so genau wie möglich), beim title eine kurze Referenz zum Prompt und beim Jahr - das Jahr in dem die Abfrage gemacht wurde. Das hat dem `short-prompt` aus der metadata.yaml zu entsprechen.
+Die Systemarchitektur ist bewusst einfach gehalten und besteht aus klar getrennten Komponenten. Dadurch wird eine hohe Wartbarkeit sowie eine einfache Erweiterbarkeit ermöglicht. Die detaillierte technische Umsetzung und die einzelnen Teilbereiche werden in den nachfolgenden Kapiteln je Schüler ausführlich beschrieben.
 
-~~~~~
-@unpublished{gpt-pandoc,
-  author = {{ChatGPT 4.0}},
-  title  = {Was ist Pandoc ?},
-  year   = {2024},
-  url={https://chat.openai.com/c/ef535195-0e39-4d5c-9c85-cdb7ec18ad03},
-  urldate = {2023-02-29}
-}
-~~~~~ 
+---
 
-Oben sieht man wie ein korrekter Bibtech Eintrag für eine ChatGPT Konversation aussieht. Zusätzlich wurden hier bei URL noch die url des Chats eingetragen - was zwar praktisch ist, uns allerdings nicht von der Pflicht entbindet den Chatverlauf in der DA als PDF einzufügen.
-Anzumerkein ist ebenfalls noch das wir hier ein `unpublished` Tag verwenden weil wir hier eben Quellen verwenden die in dieser Form nicht gepublished wurden.
+## 3.3 Struktur der weiteren Ausarbeitungen
 
-### Systembeschreibung Y 
+Die detaillierten technischen Ausarbeitungen dieser Diplomarbeit sind in eigenen Unterkapiteln je Schüler gegliedert. In diesen Kapiteln werden die jeweiligen Teilbereiche, verwendeten Technologien sowie die konkrete Umsetzung ausführlich beschrieben.
 
-### Systembeschreibung Z 
+- Kapitel 3.1 behandelt die Ausarbeitung von Sommer.
+- Kapitel 3.2 behandelt die Ausarbeitung von Zorn.
+- Kapitel 3.3 behandelt die Ausarbeitung von Leitner.
