@@ -1,39 +1,52 @@
-# 3 Aufgabenstellung
+# Ausarbeitungen
 
-## 3.1 Auftraggeber und Aufgabenstellung
+## Auftraggeber
 
-### Auftraggeber
+Auftraggeber dieser Diplomarbeit ist die **HTL Leoben**. Der humanoide Serviceroboter Pepper ist an der Schule bereits vorhanden und wurde in der Vergangenheit vereinzelt für Demonstrationszwecke eingesetzt. Aufgrund fehlender Erweiterbarkeit, veralteter Softwarekomponenten sowie unzureichender Dokumentation war ein dauerhafter und sinnvoller Einsatz jedoch nur eingeschränkt möglich.
 
-Auftraggeber dieser Diplomarbeit ist die **HTL Leoben**. Der humanoide Serviceroboter Pepper ist an der Schule bereits vorhanden und wurde in der Vergangenheit vereinzelt für Demonstrationszwecke eingesetzt. Aufgrund fehlender Erweiterbarkeit, veralteter Softwarekomponenten sowie unzureichender Dokumentation war ein dauerhafter und sinnvoller Einsatz jedoch nicht möglich.
-
-Die Initiative zu dieser Diplomarbeit entstand aus dem Wunsch, Pepper neu aufzusetzen und für schulische Veranstaltungen wie den Tag der offenen Tür, Schulführungen oder Präsentationen nutzbar zu machen. Der Auftraggeber verspricht sich von dieser Arbeit eine moderne, stabile und selbsterklärende Lösung, die ohne tiefgehendes technisches Vorwissen bedient werden kann und langfristig an der Schule eingesetzt wird.
+Die Diplomarbeit wurde in Zusammenarbeit mit den betreuenden Lehrkräften initiiert, um Pepper technisch zu überarbeiten und für schulische Veranstaltungen wie den Tag der offenen Tür, Schulführungen oder Präsentationen nutzbar zu machen. Der Auftraggeber erwartet sich eine stabile, verständliche und langfristig wartbare Lösung, die ohne tiefgehendes technisches Vorwissen bedient werden kann.
 
 ---
 
-### Ausgangssituation
+## Aufgabenstellung
 
-Zu Beginn der Diplomarbeit befand sich Pepper in einem technisch eingeschränkten Zustand. Die vorhandene Software war nicht einheitlich strukturiert und nur teilweise dokumentiert. Interaktionen mit Besuchern waren nur eingeschränkt möglich und für Außenstehende nicht selbsterklärend.
+Ziel der Ausarbeitungen ist die Entwicklung einer interaktiven Softwarelösung für Pepper, die Besucher selbstständig nutzen können. Dabei sollen Informationen über die Schule vermittelt und gleichzeitig eine spielerische Interaktion ermöglicht werden.
 
-Eine zentrale Tablet-Anwendung, über welche Inhalte übersichtlich dargestellt und Interaktionen ausgelöst werden können, war nicht vorhanden. Ebenso fehlte eine klare Trennung zwischen Benutzeroberfläche, Spiellogik und Roboterverhalten. Änderungen am System erforderten umfangreiche Kenntnisse der Pepper-Softwareumgebung und waren daher nur eingeschränkt durchführbar.
+Die Aufgabenstellung umfasst unter anderem:
 
-Der derzeitige Arbeitsablauf war stark manuell geprägt. Für Präsentationen musste Pepper aktiv über Choregraphe gesteuert werden, was einen betreuten Betrieb erforderte. Ein teilautonomer Einsatz, beispielsweise über einen längeren Zeitraum ohne permanente Aufsicht, war nicht möglich.
-
----
-
-## 3.2 Allgemeine Systembeschreibung
-
-Ziel der entwickelten Lösung ist ein ereignisbasiertes System, bei dem die Benutzerinteraktion über eine tabletbasierte Weboberfläche erfolgt. Diese Weboberfläche wird direkt auf dem Tablet von Pepper angezeigt und dient als zentrale Schnittstelle für Besucher.
-
-Benutzereingaben auf dem Tablet lösen definierte Ereignisse aus, welche über eine Kommunikationsschnittstelle an Pepper weitergegeben werden. In der Entwicklungsumgebung werden diese Ereignisse verarbeitet und mit entsprechenden Aktionen wie Sprachausgabe, Animationen oder Videowiedergabe verknüpft.
-
-Die Systemarchitektur ist bewusst einfach gehalten und besteht aus klar getrennten Komponenten. Dadurch wird eine hohe Wartbarkeit sowie eine einfache Erweiterbarkeit ermöglicht. Die detaillierte technische Umsetzung und die einzelnen Teilbereiche werden in den nachfolgenden Kapiteln je Schüler ausführlich beschrieben.
+- Konzeption und Umsetzung einer tabletbasierten Benutzeroberfläche  
+- Entwicklung interaktiver Spiele für Besucher  
+- Präsentation der Ausbildungszweige der HTL Leoben  
+- Anbindung der Tablet-Anwendung an Pepper über eine ereignisbasierte Kommunikation  
+- Sicherstellung eines stabilen Offline-Betriebs  
+- Erstellung eines verständlichen Tutorials zur Inbetriebnahme und Anpassung  
 
 ---
 
-## 3.3 Struktur der weiteren Ausarbeitungen
+## Ausgangssituation
 
-Die detaillierten technischen Ausarbeitungen dieser Diplomarbeit sind in eigenen Unterkapiteln je Schüler gegliedert. In diesen Kapiteln werden die jeweiligen Teilbereiche, verwendeten Technologien sowie die konkrete Umsetzung ausführlich beschrieben.
+Zu Beginn der Diplomarbeit befand sich Pepper in einem technisch eingeschränkten Zustand. Die vorhandene Software war nicht einheitlich aufgebaut und nur teilweise dokumentiert. Interaktionen mit Besuchern waren nur eingeschränkt möglich und erforderten meist eine aktive Betreuung.
 
-- Kapitel 3.1 behandelt die Ausarbeitung von Sommer.
-- Kapitel 3.2 behandelt die Ausarbeitung von Zorn.
-- Kapitel 3.3 behandelt die Ausarbeitung von Leitner.
+Eine zentrale Tablet-Anwendung, über welche Besucher selbstständig mit Pepper interagieren können, war nicht vorhanden. Ebenso fehlte eine klare Trennung zwischen Benutzeroberfläche, Spiellogik und Roboterverhalten. Änderungen am System waren daher zeitaufwendig und fehleranfällig.
+
+---
+
+## Allgemeine Systembeschreibung
+
+Die entwickelte Lösung basiert auf einer klaren Trennung der einzelnen Systemkomponenten. Die Benutzerinteraktion erfolgt über eine Weboberfläche, die direkt auf dem Tablet von Pepper angezeigt wird. Diese Weboberfläche dient als zentrale Schnittstelle für alle Inhalte und Spiele.
+
+Benutzereingaben auf dem Tablet lösen definierte Ereignisse aus, die an Pepper weitergegeben werden. In der Entwicklungsumgebung werden diese Ereignisse verarbeitet und mit entsprechenden Aktionen wie Sprachausgabe, Animationen oder Videowiedergabe verknüpft.
+
+Die Architektur ist bewusst einfach gehalten, um Stabilität, Wartbarkeit und Erweiterbarkeit sicherzustellen.
+
+---
+
+## Gliederung der Teilaufgaben
+
+Die konkreten technischen Ausarbeitungen dieser Diplomarbeit sind nach Schülern gegliedert. Jeder Schüler bearbeitet einen klar abgegrenzten Teilbereich des Gesamtsystems.
+
+- Die Ausarbeitung von **Sommer** umfasst die Entwicklung der interaktiven Spiele, Beiträge zum Projektmanagement sowie die Erstellung des Tutorials.  
+- Die Ausarbeitung von **Zorn** behandelt die Repräsentationsseiten, die Gestaltung der Tablet-Oberfläche sowie die Anbindung an Pepper.  
+- Die Ausarbeitung von **Leitner** beschäftigt sich mit KI-gestützter Interaktion und der Verwendung lokaler Sprachmodelle.  
+
+Die einzelnen Teilaufgaben werden in den folgenden Kapiteln detailliert beschrieben.
